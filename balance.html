@@ -1,0 +1,972 @@
+<!DOCTYPE HTML>
+<html lang='en'>
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta name="description" content="Balance Chemical Equation - Online Balancer">
+  <meta property="og:image" content="https://www.webqc.org/pictures/webqclogo3.jpeg">
+  <meta property="og:url"
+    content="http://www.webqc.org/balance.php?reaction=KMnO4+%2B+HCl+%3D+KCl+%2B+MnCl2+%2B+H2O+%2B+Cl2">
+  <meta property="og:title" content="Balance Chemical Equation - Online Balancer">
+  <meta property="og:description" content="Balance Chemical Equation - Online Balancer">
+  <link rel="shortcut icon" href="/favicon.ico">
+
+  <style>
+    body {
+      margin: 0px;
+    }
+
+    tr {
+      text-align: center;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    td.t {
+      border: 1px solid gray;
+    }
+
+    td.el {
+      border: 1px solid gray;
+      cursor: pointer;
+    }
+
+    td.elpt {
+      border: 1px solid gray;
+    }
+
+    input.conv {
+      border: 1px solid gray;
+      text-align: center;
+    }
+
+    td.menu a {
+      color: black;
+      font-family: 'Arial';
+      text-decoration: none;
+      margin-left: 2px;
+    }
+
+    td.menu {
+      vertical-align: middle;
+      background: #EFFEFF;
+      text-align: left;
+      padding: 3px;
+      box-shadow: 2px 2px 2px 1px #E0E0FF;
+      border-radius: 4px;
+    }
+
+    td.menu-selected {
+      vertical-align: middle;
+      background: lightblue;
+      text-align: left;
+      padding: 3px;
+      box-shadow: 2px 2px 2px 1px #E0E0FF;
+      border-radius: 4px;
+    }
+
+    div.header-selected {
+      vertical-align: middle;
+      background: lightblue;
+      text-align: center;
+      padding: 3px;
+      box-shadow: 2px 2px 2px 1px #E0E0FF;
+      border-radius: 4px;
+    }
+
+    td.menu:hover {
+      cursor: pointer;
+    }
+
+    td.frontpage {
+      vertical-align: middle;
+      text-align: center;
+    }
+
+    img.frontpage:hover {
+      cursor: pointer;
+    }
+
+    a.frontpage {
+      text-decoration: none;
+      color: red;
+      font-weight: bold;
+      font-size: large;
+    }
+
+    .menusection {
+      font-size: large;
+      font-weight: bold;
+    }
+
+    a.tottttttt {
+      font-weight: bold;
+      font-size: large;
+    }
+
+    a.pmenu {
+      color: red;
+      font-family: 'Arial';
+      text-decoration: none;
+    }
+
+    a.links {
+      color: #0000AA;
+      text-decoration: underline;
+    }
+
+    .lan {
+      color: darkblue;
+      text-decoration: none;
+    }
+
+    .act {
+      color: #A52A2A;
+      text-decoration: none;
+    }
+
+    .tra {
+      color: #EE8800;
+      text-decoration: none;
+    }
+
+    .alk {
+      color: #007000;
+      text-decoration: none;
+    }
+
+    .bw {
+      color: #000000;
+      text-decoration: none;
+    }
+
+    .alke {
+      color: #707000;
+      text-decoration: none;
+    }
+
+    .nob {
+      color: #606060;
+      text-decoration: none;
+    }
+
+    .met {
+      color: purple;
+      text-decoration: none;
+    }
+
+    .nonmet {
+      color: red;
+      text-decoration: none;
+    }
+
+    .semimet {
+      color: #007070;
+      text-decoration: none;
+    }
+
+    .e {
+      color: green;
+    }
+
+    .ne {
+      color: blue;
+    }
+
+    h1.compact {
+      margin: 2px 2px 2px 2px;
+      padding: 2px 2px 2px 2px;
+      text-align: center;
+    }
+
+    h1 {
+      margin: 0px;
+    }
+
+    .jqac-menu {
+      color: black;
+      background-color: white;
+      border: 1px solid #aaa;
+    }
+
+    .jqac-menu ul {
+      list-style: none;
+      margin: 1px;
+      padding: 1px;
+      overflow: hidden;
+    }
+
+    .jqac-menu .jqac-link {
+      cursor: pointer;
+      display: block;
+    }
+
+    .jqac-menu .jqac-highlight {
+      background-color: #ddf;
+    }
+
+    .jqac-menu .jqac-warning {
+      font-style: italic;
+    }
+
+
+
+    .jqac-menu .jqs-info {
+      text-align: right;
+      font-style: italic;
+      font-size: .75em;
+      color: #666;
+    }
+
+    table.ucForm {
+      margin-left: auto;
+      margin-right: auto;
+      border: 1px solid black;
+      border-collapse: collapse;
+    }
+
+    a.inCaption {
+      color: black;
+      text-decoration: none;
+    }
+
+    td.items_table {
+      text-align: center;
+    }
+
+    td.ucInFormLabel {
+      width: 50%;
+      text-align: right;
+    }
+
+    td.ucInFormField {
+      text-align: left;
+    }
+
+    a.items_table {
+      text-decoration: none;
+      font-weight: bold;
+      font-size: large;
+    }
+
+    a.items_table:hover {
+      text-decoration: underline;
+    }
+
+    .lookup_subject {
+      float: left;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .with_input {
+      margin: 0px;
+      padding: 0px;
+      display: inline-block;
+    }
+
+    .value_for {
+      margin: 0px;
+      padding: 0px;
+      display: inline-block;
+    }
+
+    .default_value {
+      display: none;
+    }
+
+    div.list_sub_items {
+      background: #FFFFFF;
+      position: absolute;
+      top: 22px;
+      left: 0px;
+      display: none;
+      padding: 3px;
+      margin: 0px;
+      border: solid 1px #000000;
+    }
+
+    div.sub_item {
+      width: 100%;
+      padding: 0px;
+    }
+
+    div.sub_item:HOVER {
+      background: #000000;
+      color: #FFFFFF;
+    }
+
+    #output_div {
+      border: 1px solid black;
+      padding: 5px;
+      text-align: left;
+      display: none;
+    }
+
+    #output_unit_name {
+      text-align: right;
+    }
+
+    #result_div {
+      padding: 0px;
+      margin: 0px;
+    }
+
+    #result_div:FIRST-LETTER {
+      margin-left: 25px;
+    }
+
+    #result_div:FIRST-LINE {
+      font-weight: bold;
+    }
+
+    #solution_div {
+      padding: 0px;
+      margin: 0px;
+    }
+
+    #solution_div:FIRST-LETTER {
+      margin-left: 25px;
+    }
+
+    #solution_div:FIRST-LINE {
+      font-weight: bold;
+    }
+
+    a.in_title {
+      color: black;
+      text-decoration: none;
+    }
+
+    td.items_table {
+      text-align: center;
+    }
+
+    td.td_form_label {
+      text-align: right;
+    }
+
+    .title_div {
+      padding: 5px;
+      font-weight: bold;
+    }
+
+    #description_div {
+      border: 1px solid black;
+      padding: 5px;
+      text-align: justify;
+    }
+
+    #description_div:FIRST-LETTER {
+      margin-left: 25px;
+    }
+
+    #equations_div {
+      border: 1px solid black;
+      padding: 5px;
+    }
+
+    #input_div {
+      border: 1px solid black;
+      padding: 5px;
+      display: none;
+    }
+
+    #constants tr td {
+      text-align: left;
+    }
+
+    .left {
+      text-align: left;
+    }
+
+    .center {
+      text-align: center;
+    }
+
+    table.center {
+      margin: 0 auto;
+    }
+
+    .right {
+      text-align: right;
+    }
+
+    .top {
+      vertical-align: top;
+    }
+
+    .bottom {
+      vertical-align: bottom;
+    }
+
+    .justify {
+      text-align: justify;
+    }
+
+    .wide {
+      width: 100%;
+    }
+
+    .right {
+      float: right;
+    }
+
+    table.cellpadding1 td {
+      padding: 1px;
+    }
+
+    table.cellpadding2 td {
+      padding: 2px;
+    }
+
+    table.cellpadding3 td {
+      padding: 3px;
+    }
+
+    table.cellpadding10 td {
+      padding: 10px;
+    }
+
+    .gray {
+      color: gray;
+    }
+
+    table.zero {
+      border: 0;
+      border-spacing: 0;
+      border-collapse: collapse;
+    }
+
+    img {
+      border: 0;
+    }
+
+    table.border,
+    table.border td {
+      border: 1px solid black;
+      border-collapse: collapse;
+    }
+
+    .gte {
+      color: green;
+      font-size: large;
+    }
+
+    .white {
+      color: white;
+    }
+
+    .orange {
+      color: orange;
+    }
+
+    .green {
+      color: green;
+    }
+
+    .red {
+      color: red;
+    }
+
+    .blue {
+      color: blue;
+    }
+
+    .dym {
+      color: brown;
+    }
+
+    .updateable {
+      border: 1px solid blue;
+    }
+
+    .bg-light {
+      background-color: #DDDDDD;
+    }
+
+    .bg-dark {
+      background-color: gray;
+    }
+
+    .border-left {
+      border-left: 1px solid black;
+    }
+
+    .border-right {
+      border-right: 1px solid black;
+    }
+
+    .border-top {
+      border-top: 1px solid black;
+    }
+
+    .border-bottom {
+      border-bottom: 1px solid black;
+    }
+
+    .hover {
+      cursor: pointer;
+    }
+
+    .bold {
+      font-weight: bold;
+    }
+
+    input[type='number'] {
+      -moz-appearance: textfield;
+    }
+
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+    }
+
+    .presults {
+      border-collapse: collapse;
+      margin: 10px auto;
+    }
+
+    table.presults td {
+      padding: 10px;
+      border-style: solid;
+      border-color: #DDD;
+      border-width: 0 0 1px 0;
+    }
+
+    table.presults th {
+      padding: 10px;
+      border: 0px solid gray;
+      text-align: center;
+      background-color: #DDD;
+    }
+
+    .disp {
+      font-size: x-large;
+    }
+
+    .lang {
+      padding: 3px 0;
+      display: block;
+    }
+
+    #perm_ad {
+      padding: 3px;
+    }
+
+    .content {
+      margin: 0 auto;
+    }
+
+    .eq {
+      margin: 5px;
+    }
+
+    .middle {
+      vertical-align: middle;
+    }
+
+    @keyframes blinker {
+      from {
+        opacity: 1.0;
+      }
+
+      to {
+        opacity: 0.0;
+      }
+    }
+
+    div.blink {
+      animation-name: blinker;
+      animation-duration: 0.75s;
+      animation-iteration-count: infinite;
+      animation-timing-function: ease-in-out;
+      animation-direction: alternate;
+    }
+
+    .ac-renderer {
+      position: absolute;
+      background: #eee;
+      border: 1px solid #ddd;
+      -moz-box-shadow: 2px 2px 2px rgba(102, 102, 102, .4);
+      -webkit-box-shadow: 2px 2px 2px rgba(102, 102, 102, .4);
+      width: 300px;
+    }
+
+    .ac-row {
+      cursor: pointer;
+      font-size: 0.8em;
+      color: #333;
+      padding: .4em;
+    }
+
+    .ac-highlighted {
+      font-weight: bold;
+    }
+
+    .ac-active {
+      color: #eb8f00;
+      border: 1px solid #fbd850;
+      background-color: #fff;
+    }
+
+    .tooltip {
+      background-color: rgba(255, 255, 255, 255);
+      padding: 10px;
+      position: absolute;
+      border-radius: 10px;
+      font-size: small;
+      border: solid 1px green;
+    }
+
+    .tooltip::after {
+      content: " ";
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      margin-left: -5px;
+      border-width: 5px;
+      border-style: solid;
+      border-color: green transparent transparent transparent;
+    }
+
+    .copy-tooltip {
+      position: absolute;
+      background-color: rgba(255, 255, 255, 255);
+      padding: 8px 12px;
+      border-radius: 5px;
+      font-size: 12px;
+      color: #555;
+      opacity: 0;
+      transition: transform 0.5s ease-in-out, opacity 1s ease-in-out;
+      box-shadow: 3px 3px 3px 0 #ddd;
+      border: solid 1px green;
+      z-index: 1;
+    }
+
+    .copy-tooltip-arrow-left::after {
+      content: " ";
+      position: absolute;
+      top: 50%;
+      right: 100%;
+      margin-top: -5px;
+      border-width: 5px;
+      border-style: solid;
+      border-color: transparent green transparent transparent;
+    }
+
+    .copy-tooltip-arrow-right::after {
+      content: " ";
+      position: absolute;
+      top: 50%;
+      left: 100%;
+      margin-top: -5px;
+      border-width: 5px;
+      border-style: solid;
+      border-color: transparent transparent transparent green;
+    }
+
+    .banner {
+      border: 3px solid #FF750B;
+      margin: 7px;
+      border-radius: 20px;
+      padding: 20px;
+      text-align: center;
+      display: block;
+      color: black;
+    }
+
+    .banner:hover {
+      background: #FFC59B;
+      text-decoration: none;
+    }
+
+    input[type="text"],
+    textarea {
+      box-sizing: border-box;
+    }
+  </style>
+
+
+  <style>
+    .ui-menu-item {
+      font-size: 0.8em;
+    }
+  </style>
+
+  <style>
+    td.menu-spacer {
+      height: 2px;
+    }
+  </style>
+
+
+  <script>
+    var is_cookie_policy_required = false;
+
+    var tr_consent_header = "Notice";
+    var tr_consent_text = "<p>This website uses cookies to enable important site functionality including user preferences, statistics, targeting and personalization as outlined in  <a href='\/privacypolicy.php'>privacy policy<\/a>.<\/p><p>You accept use of cookies by closing or dismissing this notice or by clicking on a link or a button on the page.<\/p>";
+    var tr_accept = "Accept";
+    var tr_customize = "Customize";
+    var tr_necessary = "Necessary";
+    var tr_preferences = "Preferences";
+    var tr_statistics = "Statistics";
+    var tr_marketing = "Marketing";
+    var tr_withdraw_cookie_consent_confirmation = "Cookie consent was withdrawn. Click OK to reload the page.";
+
+    (adsbygoogle = window.adsbygoogle || []).pauseAdRequests = 1;
+  </script>
+  <script src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js' async></script>
+
+  <title> Mystery With Chemistry - Online Equation Balancer </title>
+</head>
+
+<body>
+  <table class='zero content' id='main'>
+    <td class='center top' rowspan='2'>
+      <div class='header-selected'>
+        <h4 style='margin:0;padding:3px;'>Balance Chemical Equation - Online Balancer</h4>
+      </div>
+
+      <div id='toplink'></div>
+      <table class='center' style='width: 800px'>
+        <tr>
+          <td>
+            <form name='form1' action='balance.php' method='post' style='margin-bottom:0;'>
+              <label><b>Enter a chemical equation to balance:</b><br>
+                <input autofocus id='reaction' name='reaction' value='KMnO4 + HCl = KCl + MnCl2 + H2O + Cl2'
+                  maxlength='200' style='width: 80%;' placeholder='Enter a chemical equation to balance'
+                  autocomplete='off'></label>
+              <input type='submit' value='Balance'>
+            </form>
+          </td>
+        </tr>
+        <tr>
+          <td class='center'>
+            <b><span class='green'>Balanced equation</span>:<br> <span class='blue'>2</span> KMnO<sub>4</sub> + <span
+                class='blue'>16</span> HCl = <span class='blue'>2</span> KCl + <span class='blue'>2</span>
+              MnCl<sub>2</sub> + <span class='blue'>8</span> H<sub>2</sub>O + <span class='blue'>5</span>
+              Cl<sub>2</sub></b> <a href='javascript:void(0);'
+              onclick='copyToClipboard(event, "2 KMnO4 + 16 HCl = 2 KCl + 2 MnCl2 + 8 H2O + 5 Cl2", "Equation");'>
+              <!-- WebQC top add -->
+              <ins class="adsbygoogle" style="display:block;max-height:120px" data-ad-client="ca-pub-7891406799955373"
+                data-ad-slot="2732755194" data-ad-format="auto"></ins>
+              <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+              </script>
+              <script>
+                var top_banner_shown = 42;
+              </script>
+              </div>
+              <table class='center border-bottom' cellpadding=12 cellspacing=0 style='padding-top:3px; width: 100%;'>
+                <tr>
+                  <td colspan=5 style='padding: 0px;' class='left'>
+                    <table cellpadding=12 cellspacing=0 style='width: 100%'>
+                      <tr>
+                        <td id='rs-tab' class='bold bg-light border-left border-top border-right'
+                          onclick='selectRSCalc();'>Reaction stoichiometry</td>
+                        <td id='lr-tab' class='bold hover bg-dark border-bottom' onclick='selectLRCalc();'>Limiting
+                          reagent</td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+                <tr class='bg-light'>
+                  <td class='border-left'>Compound</td>
+                  <td>Coefficient</td>
+                  <td>Molar Mass</td>
+                  <td>Moles</td>
+                  <td class='border-right'>Weight</td>
+                </tr>
+                <tr>
+                  <td class='border-left'><a href='/molecular-weight-of-KMnO4.html'
+                      title='potassium permanganate'>KMnO<sub>4</sub></a></td>
+                  <td>2</td>
+                  <td>158.033945</td>
+                  <td><input type='text' class='updateable' data-mult='2' onchange='updateBalanceTable(this);'
+                      onkeyup='updateBalanceTable(this);' style='width: 6em' title='KMnO4 Moles'></td>
+                  <td class='border-right'><input type='text' class='updateable' data-mult='316.06789'
+                      onchange='updateBalanceTable(this);' onkeyup='updateBalanceTable(this);' style='width: 6em'
+                      title='KMnO4 Weight'>
+                </tr>
+                <tr>
+                  <td class='border-left'><a href='/molecular-weight-of-HCl.html' title='hydrogen chloride'>HCl</a></td>
+                  <td>16</td>
+                  <td>36.46094</td>
+                  <td><input type='text' class='updateable' data-mult='16' onchange='updateBalanceTable(this);'
+                      onkeyup='updateBalanceTable(this);' style='width: 6em' title='HCl Moles'></td>
+                  <td class='border-right'><input type='text' class='updateable' data-mult='583.37504'
+                      onchange='updateBalanceTable(this);' onkeyup='updateBalanceTable(this);' style='width: 6em'
+                      title='HCl Weight'>
+                </tr>
+                <tr>
+                  <td colspan=5 style='height: 1px; background-color: black; padding:0'>
+                    <script>var productStartIndex = 4;</script>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='border-left'><a href='/molecular-weight-of-KCl.html' title='potassium chloride'>KCl</a>
+                  </td>
+                  <td>2</td>
+                  <td>74.5513</td>
+                  <td><input type='text' class='updateable' data-mult='2' onchange='updateBalanceTable(this);'
+                      onkeyup='updateBalanceTable(this);' style='width: 6em' title='KCl Moles'></td>
+                  <td class='border-right'><input type='text' class='updateable' data-mult='149.1026'
+                      onchange='updateBalanceTable(this);' onkeyup='updateBalanceTable(this);' style='width: 6em'
+                      title='KCl Weight'>
+                </tr>
+                <tr>
+                  <td class='border-left'><a href='/molecular-weight-of-MnCl2.html'
+                      title='manganese(ii) chloride'>MnCl<sub>2</sub></a></td>
+                  <td>2</td>
+                  <td>125.844045</td>
+                  <td><input type='text' class='updateable' data-mult='2' onchange='updateBalanceTable(this);'
+                      onkeyup='updateBalanceTable(this);' style='width: 6em' title='MnCl2 Moles'></td>
+                  <td class='border-right'><input type='text' class='updateable' data-mult='251.68809'
+                      onchange='updateBalanceTable(this);' onkeyup='updateBalanceTable(this);' style='width: 6em'
+                      title='MnCl2 Weight'>
+                </tr>
+                <tr>
+                  <td class='border-left'><a href='/molecular-weight-of-H2O.html' title='water'>H<sub>2</sub>O</a></td>
+                  <td>8</td>
+                  <td>18.01528</td>
+                  <td><input type='text' class='updateable' data-mult='8' onchange='updateBalanceTable(this);'
+                      onkeyup='updateBalanceTable(this);' style='width: 6em' title='H2O Moles'></td>
+                  <td class='border-right'><input type='text' class='updateable' data-mult='144.12224'
+                      onchange='updateBalanceTable(this);' onkeyup='updateBalanceTable(this);' style='width: 6em'
+                      title='H2O Weight'>
+                </tr>
+                <tr>
+                  <td class='border-left'><a href='/molecular-weight-of-Cl2.html' title='chlorine'>Cl<sub>2</sub></a>
+                  </td>
+                  <td>5</td>
+                  <td>70.906</td>
+                  <td><input type='text' class='updateable' data-mult='5' onchange='updateBalanceTable(this);'
+                      onkeyup='updateBalanceTable(this);' style='width: 6em' title='Cl2 Moles'></td>
+                  <td class='border-right'><input type='text' class='updateable' data-mult='354.53'
+                      onchange='updateBalanceTable(this);' onkeyup='updateBalanceTable(this);' style='width: 6em'
+                      title='Cl2 Weight'>
+                </tr>
+              </table><span class=gray>Units: molar mass - g/mol, weight - g.</span><br>
+          </td>
+        </tr>
+        <tr>
+          <td class='left'>
+
+            <br>
+            &nbsp;<b>Instructions on balancing chemical equations:</b>
+            <ul>
+              <li>Enter an equation of a chemical reaction and click 'Balance'. The answer will appear below</li>
+              <li>Always use the upper case for the first character in the element name and the lower case for the
+                second character. Examples: Fe, Au, Co, Br, C, O, N, F. &nbsp;&nbsp;&nbsp; Compare: Co - cobalt and CO -
+                carbon monoxide</li>
+              <li>To enter an electron into a chemical equation use {-} or e </li>
+              <li>To enter an ion specify charge after the compound in curly brackets: {+3} or {3+} or {3}.<br> Example:
+                Fe{3+} + I{-} = Fe{2+} + I2</li>
+              <li>Substitute immutable groups in chemical compounds to avoid ambiguity. <br>For instance equation
+                C6H5C2H5 + O2 = C6H5OH + CO2 + H2O will not be balanced, <br>but PhC2H5 + O2 = PhOH + CO2 + H2O will
+              </li>
+              <li>Compound states [like (s) (aq) or (g)] are not required.</li>
+              <li>If you do not know what products are enter reagents only and click 'Balance'. In many cases a complete
+                equation will be suggested.</li>
+              <li>Reaction stoichiometry could be computed for a balanced equation. Enter either the number of moles or
+                weight for one of the compounds to compute the rest.</li>
+              <li>Limiting reagent can be computed for a balanced equation by entering the number of moles or weight for
+                all reagents. The limiting reagent row will be highlighted in pink.</li>
+            </ul>
+            &nbsp;<b>Examples of complete chemical equations to balance:</b>
+            <ul>
+              <li class=eq><a href='https://www.webqc.org/balance.php?reaction=Fe+%2B+Cl2+%3D+FeCl3'>Fe + Cl<sub>2</sub>
+                  = FeCl<sub>3</sub></a></li>
+              <li class=eq><a href='https://www.webqc.org/balance.php?reaction=Fe+%2B+Cl2+%3D+FeCl3'>KMnO<sub>4</sub> +
+                  HCl = KCl + MnCl<sub>2</sub> + H<sub>2</sub>O + Cl<sub>2</sub></a></li>
+              <li class=eq><a
+                  href='https://www.webqc.org/balance.php?reaction=KMnO4+%2B+HCl+%3D+KCl+%2B+MnCl2+%2B+H2O+%2B+Cl2'>K<sub>4</sub>Fe(CN)<sub>6</sub>
+                  + H<sub>2</sub>SO<sub>4</sub> + H<sub>2</sub>O = K<sub>2</sub>SO<sub>4</sub> + FeSO<sub>4</sub> +
+                  (NH<sub>4</sub>)<sub>2</sub>SO<sub>4</sub> + CO</a></li>
+              <li class=eq><a
+                  href='https://www.webqc.org/balance.php?reaction=K4Fe%28CN%296+%2B+H2SO4+%2B+H2O+%3D+K2SO4+%2B+FeSO4+%2B+%28NH4%292SO4+%2B+CO'>C<sub>6</sub>H<sub>5</sub>COOH
+                  + O<sub>2</sub> = CO<sub>2</sub> + H<sub>2</sub>O</a></li>
+              <li class=eq><a
+                  href='https://www.webqc.org/balance.php?reaction=C6H5COOH+%2B+O2+%3D+CO2+%2B+H2O'>K<sub>4</sub>Fe(CN)<sub>6</sub>
+                  + KMnO<sub>4</sub> + H<sub>2</sub>SO<sub>4</sub> = KHSO<sub>4</sub> +
+                  Fe<sub>2</sub>(SO<sub>4</sub>)<sub>3</sub> + MnSO<sub>4</sub> + HNO<sub>3</sub> + CO<sub>2</sub> +
+                  H<sub>2</sub>O</a></li>
+              <li class=eq><a
+                  href='https://www.webqc.org/balance.php?reaction=C6H5COOH+%2B+O2+%3D+CO2+%2B+H2O'>Cr<sub>2</sub>O<sub>7</sub>{-2}
+                  + H{+} + {-} = Cr{+3} + H<sub>2</sub>O</a></li>
+              <li class=eq><a
+                  href='https://www.webqc.org/balance.php?reaction=K4Fe%28CN%296+%2B+KMnO4+%2B+H2SO4+%3D+KHSO4+%2B+Fe2%28SO4%293+%2B+MnSO4+%2B+HNO3+%2B+CO2+%2B+H2O'>S{-2}
+                  + I<sub>2</sub> = I{-} + S</a></li>
+              <li class=eq><a
+                  href='/balance.php?reaction=PhCH3+%2B+KMnO4+%2B+H2SO4+%3D+PhCOOH+%2B+K2SO4+%2B+MnSO4+%2B+H2O'>PhCH<sub>3</sub>
+                  + KMnO<sub>4</sub> + H<sub>2</sub>SO<sub>4</sub> = PhCOOH + K<sub>2</sub>SO<sub>4</sub> +
+                  MnSO<sub>4</sub> + H<sub>2</sub>O</a></li>
+              <li class=eq><a
+                  href='/balance.php?reaction=CuSO4%2A5H2O+%3D+CuSO4+%2B+H2O'>CuSO<sub>4</sub>*5H<sub>2</sub>O =
+                  CuSO<sub>4</sub> + H<sub>2</sub>O</a></li>
+              <li class=eq><a
+                  href='/balance.php?reaction=calcium+hydroxide+%2B+carbon+dioxide+%3D+calcium+carbonate+%2B+water'>calcium
+                  hydroxide + carbon dioxide = calcium carbonate + water</a></li>
+              <li class=eq><a href='/balance.php?reaction=sulfur+%2B+ozone+%3D+sulfur+dioxide'>sulfur + ozone = sulfur
+                  dioxide</a></li>
+            </ul>
+            &nbsp;<b>Examples of the chemical equations reagents (a complete equation will be suggested):</b>
+            <ul>
+              <li class=eq><a href='/balance.php?reaction=H2SO4+%2B+K4Fe%28CN%296+%2B+KMnO4'>H<sub>2</sub>SO<sub>4</sub>
+                  + K<sub>4</sub>Fe(CN)<sub>6</sub> + KMnO<sub>4</sub></a></li>
+              <li class=eq><a href='/balance.php?reaction=Ca%28OH%292+%2B+H3PO4'>Ca(OH)<sub>2</sub> +
+                  H<sub>3</sub>PO<sub>4</sub></a></li>
+              <li class=eq><a href='/balance.php?reaction=Na2S2O3+%2B+I2'>Na<sub>2</sub>S<sub>2</sub>O<sub>3</sub> +
+                  I<sub>2</sub></a></li>
+              <li class=eq><a href='/balance.php?reaction=C8H18+%2B+O2'>C<sub>8</sub>H<sub>18</sub> + O<sub>2</sub></a>
+              </li>
+              <li class=eq><a href='/balance.php?reaction=hydrogen+%2B++oxygen'>hydrogen + oxygen</a></li>
+              <li class=eq><a href='/balance.php?reaction=propane+%2B++oxygen'>propane + oxygen</a></li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <br>
+
+          </td>
+        </tr>
+      </table>
+
+      <tr>
+        <td class='top'>
+          <table class='wide'>
+
+
+
+
+
+            <script>
+              var ad_msgs = ["Hi! I know you don't like ads, but this website can't exist without them!", "Hey! Is this website helpful to you? Please help us to maintain it!", "Hello! We won't be able to pay hosting expenses without ad revenue.", "Dear Visitor! Our website cannot exist without ads!"];
+              var tr_disable_adblock = "Please disable ad block on this domain.";
+              var tr_direct_url = "Direct url to this solution";
+              var lang = 'en';
+              var tr_equation_tip = "Please enter a complete equation";
+              var tr_compound_tip = "Please enter a complete compound";
+              var alt_banner = "<a class='banner' href='https:\/\/www.nutritionvalue.org\/diary.php?utm_source=ref-webqc'>Forget 2020. Get control of 2021!<br>Track your food intake, exercise, sleep and meditation for free.<\/a>";
+
+            </script>
+
+            <script src="/js/59/balance.js" async></script>
+            <script>
+
+
+            </script>
+            <div class='sharing'></div>
+            <br><br>
+</body>
+
+</html>
