@@ -6,4 +6,11 @@ Link to the project: [Chemystery](https://mystery-in-chemistry.web.app/) <br />
 
 I will be further optimising this project and adding some more back-end functionalities.
 
+
+## Lets talk about its structure:
+
+> 1. [CSS](https://github.com/Atul240202/chemystery/tree/main/css): It consist all the CSS styling pages associated with all the HTML pages.
+> 2.  
+ 
+
 **Glimpse of my another project which I have recently devloped using Python and ROS: [Automated Warehouse System](https://youtu.be/TlbcVwzJQZk).** <br />
