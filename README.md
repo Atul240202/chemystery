@@ -5,3 +5,5 @@ Link to the project: [Chemystery](https://mystery-in-chemistry.web.app/) <br />
 **This project was selected for Grand Finale in Toycathon (Digital Edition) which is a Initiative under Aatma Nirbhar Bharat**
 
 I will be further optimising this project and adding some more back-end functionalities.
+
+**Glimpse of my another project which I have recently devloped using Python and ROS: [Automated Warehouse System](https://youtu.be/TlbcVwzJQZk).  ** <br />
