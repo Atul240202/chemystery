@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Chmystery</title>
+        <link rel="stylesheet" href="../css/style_stage4.css" />
+        <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>        
+        <script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
+
+    </head>
+    <body>
+        <div class="box" id="questionScreen">
+            <div class="title">
+                Chemystery
+            </div>
+
+            <div class="header">
+                <div class="scoreBox">
+                    Score : <span></span>                    
+                </div>
+                <div class="head_btn">
+                    <button class="talk" id="talkMe">
+                        Talk to me
+                    </button>
+                    <h1 class='content' id='cont' style="color: white; display: none;">
+                        <script src="../js/voice3.js"> </script>
+                    </h1>
+                </div>
+                <div class="timerBox">
+                    Time Left : <span></span>
+                </div>
+            </div>
+            <div id="boxPara" class="paralBox">
+                <!-- Water is composition of? -->
+            </div>
+            <div id="boxQuestion" class="questionBox">
+                <!-- Water is composition of? -->
+            </div>
+            <div id="boxOption" class="optionBox">
+                <span onclick="checkAnswer(this)" data-opt="1"></span>
+                <span onclick="checkAnswer(this)" data-opt="2"></span>
+                <span onclick="checkAnswer(this)" data-opt="3"></span>
+                <span onclick="checkAnswer(this)" data-opt="4"></span>
+
+
+
+
+            </div>
+
+
+            <div class="hint" id="hint1" style="display: none;" >
+                <img src="../img/hint31.png" style="position: relative; width: 500px; margin-left: 60px;" alt="">
+            </div>
+            <div class="hint" id="hint2" style="display: none;">
+                <img src="../img/hint32.png" style="position: relative; width: 500px; margin-left: 60px;" alt="">
+            </div>
+            <div class="hint" id="hint3" style="display: none;">
+                <img src="../img/hint33.png" style="position: relative; width: 500px; margin-left: 60px;" alt="">
+            </div>
+            <div class="hint" id="hint4" style="display: none;">
+                <img src="../img/hint34.png" style="position: relative; width: 500px; margin-left: 60px;" alt="">
+            </div>
+            <div class="hint" id="hint5" style="display: none;">
+                <img src="../img/hint1.png" style="position: relative; width: 500px; margin-left: 60px;" alt="">
+            </div>
+            <div class="hint" id="hint6" style="display: none;">
+                <img src="../img/hint1.png" style="position: relative; margin-left: 60px;" alt="">
+            </div>
+            <div class="hint" id="hint7" style="display: none;">
+                <img src="../img/hint1.png" style="position: relative; margin-left: 60px;" alt="">
+            </div>
+            <div class="hint" id="hint8" style="display: none;">
+                <img src="../img/hint1.png" style="position: relative; margin-left: 60px;" alt="">
+            </div>
+            <div class="hint" id="hint9" style="display: none;">
+                <img src="../img/hint1.png" style="position: relative; margin-left: 60px;" alt="">
+            </div>
+            <div class="hint" id="hint10" style="display: none;">
+                <img src="../img/hint1.png" style="position: relative; margin-left: 60px;" alt="">
+            </div>
+            <!-- <span style=" background-color: #ccc; border-radius: 10px; color: #444; border: 1px solid #444;
+            padding: 10px 15px;" onclick="playVid()" type="button">Lets dive down</span> -->
+
+            <video id="myVideoQ1" width="550" height="300" style="display: none; " controls>
+                <source src="https://drive.google.com/uc?export=download&id=1SvrDg6acdZy2CfaFVKeTBP9dyUH5XAqi" type="video/mp4">
+                Your browser does not support HTML5 video.
+            </video>
+            <video id="myVideoQ2" width="550" height="300" style="display: none;" controls>
+                <source src="https://drive.google.com/uc?export=download&id=1eYjMQMRYfiGW2-ge-W9Ou35rCxyR0JAD" type="video/mp4">
+                Your browser does not support HTML5 video.
+            </video>
+            <video id="myVideoQ3" width="550" height="300" style="display: none;" controls>
+                <source src="https://drive.google.com/uc?export=download&id=1ee94pQqW0PV8cqPtQ32u4Mgp2mzGyfdQ" type="video/mp4">
+                Your browser does not support HTML5 video.
+            </video>
+            <video id="myVideoQ4" width="550" height="300" style="display: none;" controls>
+                <source src="https://drive.google.com/uc?export=download&id=1pYAcxnwy2CRoJ8W5a9CbuUAGNJNkcU7X" type="video/mp4">
+                Your browser does not support HTML5 video.
+            </video>
+            <video id="myVideoQ5" width="550" height="300" style="display: none;" controls>
+                <source src="https://drive.google.com/uc?export=download&id=1m--tSPghKmcwGb1CpUwkHl6_KgZIqDX9" type="video/mp4">
+                Your browser does not support HTML5 video.
+            </video>
+            <video id="myVideoQ6" width="550" height="300" style="display: none;" controls>
+                <source src="https://drive.google.com/uc?export=download&id=1VsfDKRO6byOhchN-XavtW4qv_9Pw0_Zk" type="video/mp4">
+                Your browser does not support HTML5 video.
+            </video>
+            <video id="myVideoQ7" width="550" height="300" style="display: none;" controls>
+                <source src="https://drive.google.com/uc?export=download&id=1Od5mWPqjCAhEbZh0Qy8k_N5-mMCosV-G" type="video/mp4">
+                Your browser does not support HTML5 video.
+            </video>
+            <video id="myVideoQ8" width="550" height="300" style="display: none;" controls>
+                <source src="https://drive.google.com/uc?export=download&id=1nDZ-aBdJ9cP2PhteqKWasrML7HTCBnbb" type="video/mp4">
+                Your browser does not support HTML5 video.
+            </video>
+            <video id="myVideoQ9" width="550" height="300" style="display: none;" controls>
+                <source src="https://drive.google.com/uc?export=download&id=1mkZd11l0Gj0aQGAdMgfbuCpmCkOeNN79" type="video/mp4">
+                Your browser does not support HTML5 video.
+            </video>
+            <video id="myVideoQ10" width="550" height="300" style="display: none;" controls>
+                <source src="https://drive.google.com/uc?export=download&id=1PoMBoOxPfu-nPsgpBu7A23OaqeyZMwuZ" type="video/mp4">
+                Your browser does not support HTML5 video.
+            </video>
+
+
+            <model-viewer id="stl_cont0" style="width:500px;height:500px;margin:0 auto; display: none;" src="../js/3d_elements/protien.glb" auto-rotate camera-controls ar ios-src="js/3d_elements/glycine.stl"></model-viewer>
+            <model-viewer id="stl_cont1" style="width:500px;height:500px;margin:0 auto; display: none;" src="../js/3d_elements/protien.glb" auto-rotate camera-controls ar ios-src="js/3d_elements/glycine.stl"></model-viewer>
+            <model-viewer id="stl_cont2" style="width:500px;height:500px;margin:0 auto; display: none;" src="../js/3d_elements/protien.glb" auto-rotate camera-controls ar ios-src="js/3d_elements/glycine.stl"></model-viewer>
+            <model-viewer id="stl_cont3" style="width:500px;height:500px;margin:0 auto; display: none;" src="../js/3d_elements/protien.glb" auto-rotate camera-controls ar ios-src="js/3d_elements/glycine.stl"></model-viewer>
+            <model-viewer id="stl_cont4" style="width:500px;height:500px;margin:0 auto; display: none;" src="../js/3d_elements/protien.glb" auto-rotate camera-controls ar ios-src="js/3d_elements/glycine.stl"></model-viewer>
+            <model-viewer id="stl_cont5" style="width:500px;height:500px;margin:0 auto; display: none;" src="../js/3d_elements/protien.glb" auto-rotate camera-controls ar ios-src="js/3d_elements/glycine.stl"></model-viewer>
+            <model-viewer id="stl_cont6" style="width:500px;height:500px;margin:0 auto; display: none;" src="../js/3d_elements/protien.glb" auto-rotate camera-controls ar ios-src="js/3d_elements/glycine.stl"></model-viewer>
+            <model-viewer id="stl_cont7" style="width:500px;height:500px;margin:0 auto; display: none;" src="../js/3d_elements/protien.glb" auto-rotate camera-controls ar ios-src="js/3d_elements/glycine.stl"></model-viewer>
+            <model-viewer id="stl_cont8" style="width:500px;height:500px;margin:0 auto; display: none;" src="../js/3d_elements/protien.glb" auto-rotate camera-controls ar ios-src="js/3d_elements/glycine.stl"></model-viewer>
+            <model-viewer id="stl_cont9" style="width:500px;height:500px;margin:0 auto; display: none;" src="../js/3d_elements/protien.glb" auto-rotate camera-controls ar ios-src="js/3d_elements/glycine.stl"></model-viewer>
+
+
+
+            <div class="footer">
+                <button id="vidShowBack" onclick="showBack()" style="display: none;">
+                    <a href="stages.html" style="text-decoration: none; color: white;">Restart</a> 
+                </button>
+                <button id="vidHideNext" onclick="showNext()">
+                    Next
+                </button>
+                <button id="vidHide" onclick="playVid()" style="display: none;"> 
+                    Lets dive deep
+                </button>
+                <button id="vidShow" onclick="stopVid()" style="display: none; position: absolute; left: 48%;">
+                    Back
+                </button>
+                <button id="vidHideResult" onclick="showResult()">
+                    Show Result
+                </button>
+            </div>
+            <div class="footer_hint">
+                <button id="vidHint" onclick="hintVid()" style="position: absolute; left: 48%;">
+                    <img style="width: 40px;" src="../img/Hint.png">
+                </button>
+            </div>
+
+        </div>
+
+        <div class="box" id="resultScreen" style="display: none;">
+            <div class="title">
+                Your Scores
+            </div>
+
+            <div class="resultBox">
+                <label>Questions : </label>
+                <span id="totalQuestion">10</span>
+                <label>Attempt : </label>
+                <span id="attemptQuestion">0</span>
+                <label>Correct Answers : </label>
+                <span id="correctAnswers">0</span>
+                <label>Wrong : </label>
+                <span id="wrongAnswers">0</span>
+
+            </div>
+            <div class="buttonBox">
+                <a href="stages.html"> Start Again</a>
+            </div>
+
+        </div>
+
+
+
+        
+        <!-- content here  -->
+    </body>
+    <script src="../js/jquery-3.5.1.min.js"></script>
+    <script src="../js/quiz3.js"></script>
+    <script src="../js/script.js"></script>
+    <script src="../js/voice3.js"></script>
+
+</html>

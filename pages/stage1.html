@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Chemystery</title>
+        <link rel="stylesheet" href="../css/style_stage1.css" />
+        <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>        
+        <script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
+
+
+    </head>
+    <body>
+        <div class="box" id="questionScreen">
+            
+            <div class="title">
+                Chemystery
+            </div>
+
+            <div class="header">
+                <div class="scoreBox">
+                    Score : <span></span>                    
+                </div>
+                <div class="head_btn">
+                    <button class="talk" id="talkMe">
+                        Talk to me
+                    </button>
+                    <h1 class='content' id='cont' style="color: white; display: none;">
+                        <script src="../js/voice.js"> </script>
+                    </h1>
+                </div>
+                <div class="timerBox">
+                    Time Left : <span></span>
+                </div>
+            </div>
+            <div id="boxPara" class="paralBox">
+                <!-- Water is composition of? -->
+            </div>
+            <br>
+            <div id="boxQuestion" class="questionBox">
+                <!-- Water is composition of?  -->
+            </div>
+            <div id="boxOption" class="optionBox">
+                <span onclick="checkAnswer(this)" data-opt="1"></span>
+                <span onclick="checkAnswer(this)" data-opt="2"></span>
+                <span onclick="checkAnswer(this)" data-opt="3"></span>
+                <span onclick="checkAnswer(this)" data-opt="4"></span>
+
+
+
+
+            </div>
+            <div class="hint" id="hint1" style="display: none;" >
+                <img src="../img/hint1.png" style="position: relative; width: 500px; margin-left: 60px;" alt="">
+            </div>
+            <div class="hint" id="hint2" style="display: none;">
+                <img src="../img/hint2.png" style="position: relative; width: 500px; margin-left: 60px;" alt="">
+            </div>
+            <div class="hint" id="hint3" style="display: none;">
+                <img src="../img/hint3.png" style="position: relative; width: 500px; margin-left: 60px;" alt="">
+            </div>
+            <div class="hint" id="hint4" style="display: none;">
+                <img src="../img/hint1.png" style="position: relative; width: 500px; margin-left: 60px;" alt="">
+            </div>
+            <div class="hint" id="hint5" style="display: none;">
+                <img src="../img/hint1.png" style="position: relative; width: 500px; margin-left: 60px;" alt="">
+            </div>
+            <div class="hint" id="hint6" style="display: none;">
+                <img src="../img/hint1.png" style="position: relative; width: 500px; margin-left: 60px;" alt="">
+            </div>
+            <div class="hint" id="hint7" style="display: none;">
+                <img src="../img/hint1.png" style="position: relative; width: 500px; margin-left: 60px;" alt="">
+            </div>
+            <div class="hint" id="hint8" style="display: none;">
+                <img src="../img/hint1.png" style="position: relative; width: 500px; margin-left: 60px;" alt="">
+            </div>
+            <div class="hint" id="hint9" style="display: none;">
+                <img src="../img/hint1.png" style="position: relative; width: 500px; margin-left: 60px;" alt="">
+            </div>
+            <div class="hint" id="hint10" style="display: none;">
+                <img src="../img/hint1.png" style="position: relative; width: 500px; margin-left: 60px;" alt="">
+            </div>
+
+            <!-- <x-model src="protien.glb"></x-model> -->
+
+            <!-- <iframe id="vs_iframe" src="SF4.stl" style="border:0;margin:0;width:100%;height:100%;"></iframe> -->
+            <!-- <span style=" background-color: #ccc; border-radius: 10px; color: #444; border: 1px solid #444;
+            padding: 10px 15px;" onclick="playVid()" type="button">Lets dive down</span> -->
+
+            <video id="myVideoQ1" width="550" height="300" style="display: none; " controls>
+                <source src="https://drive.google.com/uc?export=download&id=1bXTCUhCcRt1DjbylFOglhclg02xN5Cr7" type="video/mp4">
+                Your browser does not support HTML5 video.
+            </video>
+            <video id="myVideoQ2" width="550" height="300" style="display: none;" controls>
+                <source src="https://drive.google.com/uc?export=download&id=11DILezcClo7EdKgEw9hkHx_WW2Kd8zbV" type="video/mp4">
+                Your browser does not support HTML5 video.
+            </video>
+            <video id="myVideoQ3" width="550" height="300" style="display: none;" controls>
+                <source src="https://drive.google.com/uc?export=download&id=1pu2pB6EVKr8AzPdh4xrJSM7k5b8rOq3W" type="video/mp4">
+                Your browser does not support HTML5 video.
+            </video>
+            <video id="myVideoQ4" width="550" height="300" style="display: none;" controls>
+                <source src="https://drive.google.com/uc?export=download&id=1oVkYx2O-DGHifnGmtntMeK_mGJ1Opbpq" type="video/mp4">
+                Your browser does not support HTML5 video.
+            </video>
+            <video id="myVideoQ5" width="550" height="300" style="display: none;" controls>
+                <source src="https://drive.google.com/uc?export=download&id=12M4pOye1X7vepjFD-pu7M_1BFxXECdSu" type="video/mp4">
+                Your browser does not support HTML5 video.
+            </video>
+            <video id="myVideoQ6" width="550" height="300" style="display: none;" controls>
+                <source src="https://drive.google.com/uc?export=download&id=1nRQySyM6FyASj7-2KfWtZ4Hb3xsf6Y-K" type="video/mp4">
+                Your browser does not support HTML5 video.
+            </video>
+            <video id="myVideoQ7" width="550" height="300" style="display: none;" controls>
+                <source src="https://drive.google.com/uc?export=download&id=1BhSSwA6fyoJj6bQQmtST-S_Z7cUddv6C" type="video/mp4">
+                Your browser does not support HTML5 video.
+            </video>
+            <video id="myVideoQ8" width="550" height="300" style="display: none;" controls>
+                <source src="https://drive.google.com/uc?export=download&id=102-xTR2HauRmsXsb4R9QTVLYJ0hEa-Tg" type="video/mp4">
+                Your browser does not support HTML5 video.
+            </video>
+            <video id="myVideoQ9" width="550" height="300" style="display: none;" controls>
+                <source src="https://drive.google.com/uc?export=download&id=12tq2O_MCLToQRzrRTZB_TYL6fCWNVfPA" type="video/mp4">
+                Your browser does not support HTML5 video.
+            </video>
+            <video id="myVideoQ10" width="550" height="300" style="display: none;" controls>
+                <source src="https://drive.google.com/uc?export=download&id=1wyfODn-mUOK2ajPzlQZG_1okiTYFrpXF" type="video/mp4">
+                Your browser does not support HTML5 video.
+            </video>
+
+            <!-- <div id="stl_cont1" style="width:500px;height:500px;margin:0 auto; display: none;"></div>
+            <div id="stl_cont2" style="width:500px;height:500px;margin:0 auto; display: none;"></div>
+            <div id="stl_cont3" style="width:500px;height:500px;margin:0 auto; display: none;"></div>
+            <div id="stl_cont4" style="width:500px;height:500px;margin:0 auto; display: none;"></div>
+            <div id="stl_cont5" style="width:500px;height:500px;margin:0 auto; display: none;"></div>
+            <div id="stl_cont6" style="width:500px;height:500px;margin:0 auto; display: none;"></div>
+            <div id="stl_cont7" style="width:500px;height:500px;margin:0 auto; display: none;"></div>
+            <div id="stl_cont8" style="width:500px;height:500px;margin:0 auto; display: none;"></div>
+            <div id="stl_cont9" style="width:500px;height:500px;margin:0 auto; display: none;"></div> -->
+
+            <model-viewer id="stl_cont0" style="width:500px;height:500px;margin:0 auto; display: none;" src="../js/3d_elements/beryllium.glb" auto-rotate camera-controls ar ios-src="js/3d_elements/glycine.stl"></model-viewer>
+            <model-viewer id="stl_cont1" style="width:500px;height:500px;margin:0 auto; display: none;" src="../js/3d_elements/bone.glb" auto-rotate camera-controls ar ios-src="js/3d_elements/glycine.stl"></model-viewer>
+            <model-viewer id="stl_cont2" style="width:500px;height:500px;margin:0 auto; display: none;" src="../js/3d_elements/nitrogen.glb" auto-rotate camera-controls ar ios-src="js/3d_elements/glycine.stl"></model-viewer>
+            <model-viewer id="stl_cont3" style="width:500px;height:500px;margin:0 auto; display: none;" src="../js/3d_elements/guitar.glb" auto-rotate camera-controls ar ios-src="js/3d_elements/glycine.stl"></model-viewer>
+            <model-viewer id="stl_cont4" style="width:500px;height:500px;margin:0 auto; display: none;" src="../js/3d_elements/aurum.glb" auto-rotate camera-controls ar ios-src="js/3d_elements/glycine.stl"></model-viewer>
+            <model-viewer id="stl_cont5" style="width:500px;height:500px;margin:0 auto; display: none;" src="../js/3d_elements/oxytocin.glb" auto-rotate camera-controls ar ios-src="js/3d_elements/glycine.stl"></model-viewer>
+            <model-viewer id="stl_cont6" style="width:500px;height:500px;margin:0 auto; display: none;" src="../js/3d_elements/aurum.glb" auto-rotate camera-controls ar ios-src="js/3d_elements/glycine.stl"></model-viewer>
+            <model-viewer id="stl_cont7" style="width:500px;height:500px;margin:0 auto; display: none;" src="../js/3d_elements/protien.glb" auto-rotate camera-controls ar ios-src="js/3d_elements/glycine.stl"></model-viewer>
+            <model-viewer id="stl_cont8" style="width:500px;height:500px;margin:0 auto; display: none;" src="../js/3d_elements/aurum.glb" auto-rotate camera-controls ar ios-src="js/3d_elements/glycine.stl"></model-viewer>
+            <model-viewer id="stl_cont9" style="width:500px;height:500px;margin:0 auto; display: none;" src="../js/3d_elements/cell.glb" auto-rotate camera-controls ar ios-src="js/3d_elements/glycine.stl"></model-viewer>
+
+
+
+            <div class="footer">
+                <button id="vidShowBack" class="responsiveBtn" onclick="showBack()" style="display: none;">
+                   <a href="stages.html" style="text-decoration: none; color: white;">Restart</a> 
+                </button>
+                <button id="vidHideNext" class="responsiveBtn" onclick="showNext()">
+                    Next
+                </button>
+                <button id="vidHide" class="responsiveBtn" onclick="playVid()" style="display: none;">
+                    Lets dive deep
+                </button>
+                <button id="vidShow" class="responsiveBtn" onclick="stopVid()" style="display: none; position: absolute; left: 48%;">
+                    Back
+                </button>
+                <button id="vidHideResult" class="responsiveBtn" onclick="showResult()">
+                    Show Result
+                </button>
+            </div>
+            <div class="footer_hint">
+                <button id="vidHint" onclick="hintVid()" style="position: absolute; left: 48%;">
+                    <img id="vidHintImg" style="width: 40px;" src="../img/Hint.png">
+                </button>
+            </div>
+
+        </div>
+
+
+        <div class="box" id="resultScreen" style="display: none;">
+            <div class="title">
+                Your Scores
+            </div>
+
+            <div class="resultBox">
+                <label>Questions : </label>
+                <span id="totalQuestion">10</span>
+                <label>Attempt : </label>
+                <span id="attemptQuestion">0</span>
+                <label>Correct Answers : </label>
+                <span id="correctAnswers">0</span>
+                <label>Wrong : </label>
+                <span id="wrongAnswers">0</span>
+
+            </div>
+            <div class="buttonBox">
+                <a href="stages.html"> Play again</a>
+            </div>
+
+        </div>
+
+    <script src="../js/jquery-3.5.1.min.js"></script>
+    <script src="../js/quiz0.js"></script>
+    <script src="../js/script.js"></script>
+    <script src="../js/voice.js"></script>
+
+
+</html>
